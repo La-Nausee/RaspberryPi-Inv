@@ -198,7 +198,7 @@ void readSensor(float* ax, float* ay, float* az,float* gx, float* gy, float* gz,
 	iwz = buffer[13] | (buffer[12]<<8); 
 	*gx = iwx * gres;
 	*gy = iwy * gres;
-	*gz = iwy * gres;
+	*gz = iwz * gres;
 	imx = buffer[14] | (buffer[15]<<8); 
 	imy = buffer[16] | (buffer[17]<<8); 
 	imz = buffer[18] | (buffer[19]<<8); 
