@@ -1,5 +1,5 @@
-# Raspberry-ICM20948-SPI-Invn
-Running on RASPBERRY PI 3 MODEL B, interface with ICM20948 by SPI channel 1 using embedded motion driver (eMD).
+# Raspberry-ICM20948-SPI-eMD
+Running on RASPBERRY PI 3 MODEL B, interface with ICM20948 by SPI channel 1 using embedded Motion Driver (eMD).
 ****
 |Author|Zeyang Dai|
 |---|---
