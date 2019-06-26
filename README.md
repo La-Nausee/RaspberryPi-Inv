@@ -1,5 +1,5 @@
-# Invensense
-Running on RASPBERRY PI 3 MODEL B, interface with ICM20948 or MPU9250 by SPI channel 1. More details please    
+# RaspberryPi-Inv
+Running on RASPBERRY PI 3 MODEL B, interface with Invensense's sensors by SPI channel 1. More details please    
 view the subfolder.
 ****
 |Author|Zeyang Dai|
