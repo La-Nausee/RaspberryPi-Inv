@@ -17,7 +17,7 @@
 #include <sys/time.h>
 
 extern "C" {
-   #include "spi_if.h"
+  #include "spi_if.h"
 	#include "icm20948.h"
 }
 
@@ -51,6 +51,7 @@ void *icm_log_thread(void *threadid)
 	stringstream out;
 	struct timeval tp;
 	tid = (long)threadid;
+	bool islogging=true;
 	
 	ax=ay=az=gx=gy=gz=mx=my=mz=temp=0;
 	
@@ -71,6 +72,7 @@ void *icm_log_thread(void *threadid)
 			switch(icm_queue.front())
 			{
 			case ICM_INT_EVENT:
+			if (!islogging) break;
 			gettimeofday(&tp,NULL);
 			readSensor(&ax,&ay,&az,&gx,&gy,&gz,&mx,&my,&mz,&temp);
 			/*
@@ -120,9 +122,11 @@ void *icm_log_thread(void *threadid)
 			printf("\r\n[INFO] close ICM log file.\r\n");
 			break;
 			case LOG_START_EVENT:
+			islogging=true;
 			printf("\r\n[INFO] ICM log start.\r\n");	
 			break;
 			case LOG_STOP_EVENT:
+			islogging=false;
 			printf("\r\n[INFO] ICM log stop.\r\n");	
 			break;
 			case APP_EXIT_EVENT:
@@ -195,11 +199,11 @@ int main()
 			}
 			else if(key == '3')
 			{
-				icm_queue.push(LOG_START_EVENT);
+				icm_queue.push(LOG_STOP_EVENT);
 			}
 			else if(key == '4')
 			{
-				icm_queue.push(LOG_STOP_EVENT);
+				icm_queue.push(LOG_START_EVENT);
 			}
 			else if(key == '5')
 			{
