@@ -17,7 +17,7 @@
 #include <sys/time.h>
 
 extern "C" {
-   #include "spi_if.h"
+  #include "spi_if.h"
 	#include "icm20948.h"
 }
 
@@ -195,11 +195,11 @@ int main()
 			}
 			else if(key == '3')
 			{
-				icm_queue.push(LOG_START_EVENT);
+				icm_queue.push(LOG_STOP_EVENT);
 			}
 			else if(key == '4')
 			{
-				icm_queue.push(LOG_STOP_EVENT);
+				icm_queue.push(LOG_START_EVENT);
 			}
 			else if(key == '5')
 			{
