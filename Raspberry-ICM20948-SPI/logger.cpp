@@ -16,6 +16,9 @@
 #include <string.h>
 #include <sys/time.h>
 
+#include <ios>
+#include <iomanip>
+
 extern "C" {
    #include "spi_if.h"
 	#include "icm20948.h"
@@ -84,7 +87,7 @@ void *icm_log_thread(void *threadid)
 			
 			if(icm_logfile.is_open())
 			{
-				icm_logfile<<tp.tv_sec<<"."<<tp.tv_usec<<",";
+				icm_logfile<<tp.tv_sec<<"."<<std::setfill('0')<<std::right<<std::setw(6)<<tp.tv_usec<<",";
 				icm_logfile<<gx<<","<<gy<<","<<gz<<",";
 				icm_logfile<<ax<<","<<ay<<","<<az<<",";
 				icm_logfile<<mx<<","<<my<<","<<mz<<",";

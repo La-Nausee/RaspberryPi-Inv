@@ -16,6 +16,9 @@
 #include <string.h>
 #include <sys/time.h>
 
+#include <ios>
+#include <iomanip>
+
 extern "C" {
    #include "spi_if.h"
 	#include "mpu9250.h"
@@ -84,7 +87,7 @@ void *mpu_log_thread(void *threadid)
 			
 			if(mpu_logfile.is_open())
 			{
-				mpu_logfile<<tp.tv_sec<<"."<<tp.tv_usec<<",";
+				mpu_logfile<<tp.tv_sec<<"."<<std::setfill('0')<<std::right<<std::setw(6)<<tp.tv_usec<<",";
 				mpu_logfile<<gx<<","<<gy<<","<<gz<<",";
 				mpu_logfile<<ax<<","<<ay<<","<<az<<",";
 				mpu_logfile<<mx<<","<<my<<","<<mz<<",";
