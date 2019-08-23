@@ -17,7 +17,7 @@
 #include <sys/time.h>
 
 extern "C" {
-   #include "spi_if.h"
+  #include "spi_if.h"
 	#include "mpu9250.h"
 }
 
@@ -195,11 +195,11 @@ int main()
 			}
 			else if(key == '3')
 			{
-				mpu_queue.push(LOG_START_EVENT);
+				mpu_queue.push(LOG_STOP_EVENT);
 			}
 			else if(key == '4')
 			{
-				mpu_queue.push(LOG_STOP_EVENT);
+				mpu_queue.push(LOG_START_EVENT);
 			}
 			else if(key == '5')
 			{
